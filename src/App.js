@@ -32,11 +32,11 @@ function App() {
       <Header title={"Titel"} />
 
       {/* <AllEntries /> */}
-      {/* <SingleEntries
+      <SingleEntries
         isReadStatus={true}
         bookTitle="Alex Book"
         authorName="Jakob"
-      /> */}
+      />
       <NewEntries />
     </div>
   );

@@ -20,3 +20,7 @@ button[type="submit"] {
   width: max-content;
   margin: 0 auto;
 }
+
+main {
+  position: relative;
+}
