@@ -1,0 +1,16 @@
+.SingleEntry {
+  height: 60vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 1.5em;
+  position: relative;
+}
+
+.SingleEntry p {
+  background: blue;
+  display: inline;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+}

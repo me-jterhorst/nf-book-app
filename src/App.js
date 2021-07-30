@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import AllEntries from "./pages/AllEntries";
-
+import SingleEntries from "./pages/SingleEntries";
 /**
  *
 
@@ -29,7 +29,13 @@ function App() {
   return (
     <div className="App">
       <Header title={"Titel"} />
-      <AllEntries />
+
+      {/* <AllEntries /> */}
+      <SingleEntries
+        isReadStatus={true}
+        bookTitle="Alex Book"
+        authorName="Jakob"
+      />
     </div>
   );
 }
