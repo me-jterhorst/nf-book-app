@@ -1,5 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Header from "./components/Header";
 
 /**
  *
@@ -26,7 +26,11 @@ import "./App.css";
  */
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <Header title={"Titel"} />
+    </div>
+  );
 }
 
 export default App;
