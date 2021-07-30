@@ -4,6 +4,7 @@
   list-style: none;
   gap: 1em;
   padding: 0.5em;
+  border: 4px solid black;
 }
 
 .AllEntries-Item {
