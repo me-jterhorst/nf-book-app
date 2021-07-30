@@ -10,12 +10,8 @@ function App() {
     <div className="App">
       <Header title={"Titel"} />
       <Switch>
-        <Route path="/singleEntry/:id">
-          <SingleEntries
-            isReadStatus={true}
-            bookTitle="Alex Book"
-            authorName="Jakob"
-          />
+        <Route path="/singleEntry/:pageId">
+          <SingleEntries />
         </Route>
 
         <Route path="/newEntry">
