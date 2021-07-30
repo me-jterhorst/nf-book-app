@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "./components/Header";
 import AllEntries from "./pages/AllEntries";
 import SingleEntries from "./pages/SingleEntries";
+import NewEntries from "./pages/NewEntries";
 /**
  *
 
@@ -31,11 +32,12 @@ function App() {
       <Header title={"Titel"} />
 
       {/* <AllEntries /> */}
-      <SingleEntries
+      {/* <SingleEntries
         isReadStatus={true}
         bookTitle="Alex Book"
         authorName="Jakob"
-      />
+      /> */}
+      <NewEntries />
     </div>
   );
 }

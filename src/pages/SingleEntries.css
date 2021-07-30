@@ -29,11 +29,3 @@
   color: seagreen;
   font-size: 3.2rem;
 }
-
-.btn--back {
-  background: grey;
-  padding: 0.5em 1em;
-  color: white;
-  position: relative;
-  right: 80%;
-}

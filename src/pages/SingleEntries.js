@@ -1,4 +1,5 @@
 import "./SingleEntries.css";
+import BackBtn from "../components/BackBtn";
 
 export default function SingleEntries({ isReadStatus, bookTitle, authorName }) {
   return (
@@ -7,7 +8,7 @@ export default function SingleEntries({ isReadStatus, bookTitle, authorName }) {
         <p>{isReadStatus ? "OK" : "NO"}</p>
         <h2>{bookTitle}</h2>
         <h3>{authorName}</h3>
-        <button className="btn btn--back">Go Back</button>
+        <BackBtn />
       </section>
     </main>
   );
