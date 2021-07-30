@@ -3,41 +3,29 @@ import Header from "./components/Header";
 import AllEntries from "./pages/AllEntries";
 import SingleEntries from "./pages/SingleEntries";
 import NewEntries from "./pages/NewEntries";
-/**
- *
-
- * Main
- *  -> AllEntries, SingleEntry, NewEntry
- *
- * AllEntries
- *  -> UL
- *  ---> LI
- * -----> DeleteBtn, InfoDiv, isReadCheck
- * -> NavToNewBtn
- *
- *
- * SingleEntry
- *  -> WrapperDiv
- *  ---> isReadCheck, Title, Author, BackBtn
- *
- * NewEntry
- *  -> FORM
- *   ---> TitleInput, AuthorInput, SubmitBtn
- *
- */
+import { Switch, Route } from "react-dom";
 
 function App() {
   return (
     <div className="App">
       <Header title={"Titel"} />
+      <Switch>
+        <Route path="/singleEntry/:id">
+          <SingleEntries
+            isReadStatus={true}
+            bookTitle="Alex Book"
+            authorName="Jakob"
+          />
+        </Route>
 
-      {/* <AllEntries /> */}
-      <SingleEntries
-        isReadStatus={true}
-        bookTitle="Alex Book"
-        authorName="Jakob"
-      />
-      <NewEntries />
+        <Route path="/newEntry">
+          <NewEntries />
+        </Route>
+
+        <Route path="/">
+          <AllEntries />
+        </Route>
+      </Switch>
     </div>
   );
 }
