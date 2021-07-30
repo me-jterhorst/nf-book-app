@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import AllEntries from "./pages/AllEntries";
 import SingleEntries from "./pages/SingleEntries";
 import NewEntries from "./pages/NewEntries";
-import { Switch, Route } from "react-dom";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
   return (
