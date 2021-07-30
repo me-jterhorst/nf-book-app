@@ -3,6 +3,7 @@
   "title": "Alex Book",
   "author": "Jakob",
   "isRead": "true",
+  "genre": "Science Fiction",
   "createdAt": "30.07.2021-past",
   "updatedAt": "30.07.2021-later"
 }

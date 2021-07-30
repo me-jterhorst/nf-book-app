@@ -21,6 +21,15 @@ export default function NewEntries() {
           autocomplete="off"
           placeholder="Author Name"
         />
+
+        <input
+          type="text"
+          name="bookGenre"
+          id="bookGenre"
+          required
+          autocomplete="off"
+          placeholder="Book Genre"
+        />
         <button type="submit" className="btn btn--submit">
           Add your book
         </button>
