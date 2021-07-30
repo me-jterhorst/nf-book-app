@@ -8,17 +8,19 @@ import { Switch, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <Header title={"Titel"} />
       <Switch>
         <Route path="/singleEntry/:pageId">
+          <Header title={"Single Entries"} />
           <SingleEntries />
         </Route>
 
         <Route path="/newEntry">
+          <Header title={"Create New Entry"} />
           <NewEntries />
         </Route>
 
         <Route path="/">
+          <Header title={"All the Books"} />
           <AllEntries />
         </Route>
       </Switch>

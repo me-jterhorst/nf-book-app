@@ -22,6 +22,7 @@ export default function SingleEntries({ isReadStatus, bookTitle, authorName }) {
         <h2>{book.bookTitle}</h2>
         <h3>{book.authorName}</h3>
         <h4>{book.bookGenre}</h4>
+        <p> {pageId}</p>
         <BackBtn />
       </section>
     </main>
