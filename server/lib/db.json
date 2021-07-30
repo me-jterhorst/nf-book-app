@@ -1,9 +1,29 @@
-{
-  "id": "1",
-  "title": "Alex Book",
-  "author": "Jakob",
-  "isRead": "true",
-  "genre": "Science Fiction",
-  "createdAt": "30.07.2021-past",
-  "updatedAt": "30.07.2021-later"
-}
+[
+  {
+    "id": "1",
+    "bookTitle": "Alex Book",
+    "nameAuthor": "Jakob",
+    "isRead": "true",
+    "bookGenre": "Science Fiction",
+    "createdAt": "30.07.2021-past",
+    "updatedAt": "30.07.2021-later"
+  },
+  {
+    "id": "2",
+    "bookTitle": "Boris Book",
+    "nameAuthor": "Jakob",
+    "isRead": "true",
+    "bookGenre": "Science Fiction",
+    "createdAt": "30.07.2021-past",
+    "updatedAt": "30.07.2021-later"
+  },
+  {
+    "id": "3",
+    "bookTitle": "Evis Book",
+    "nameAuthor": "Jakob",
+    "isRead": "true",
+    "bookGenre": "Science Fiction",
+    "createdAt": "30.07.2021-past",
+    "updatedAt": "30.07.2021-later"
+  }
+]
