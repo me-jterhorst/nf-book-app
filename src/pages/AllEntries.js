@@ -1,26 +1,57 @@
 import "./AllEntries.css";
 import Entry from "../components/Entry";
+import { NavLink } from "react-router-dom";
 
 export default function AllEntries() {
+  const mockApi = [
+    {
+      id: "1",
+      bookTitle: "Alex Book",
+      authorName: "Evi",
+      isRead: true,
+      bookGenre: "Science Fiction",
+      createdAt: "30.07.2021-past",
+      updatedAt: "30.07.2021-later",
+    },
+    {
+      id: "2",
+      bookTitle: "Evis Book",
+      authorName: "Jakob",
+      isRead: true,
+      bookGenre: "Science Fiction",
+      createdAt: "30.07.2021-past",
+      updatedAt: "30.07.2021-later",
+    },
+    {
+      id: "3",
+      bookTitle: "Boris Book",
+      authorName: "Jakob",
+      isRead: true,
+      bookGenre: "Science Fiction",
+      createdAt: "30.07.2021-past",
+      updatedAt: "30.07.2021-later",
+    },
+  ];
+
   return (
     <main>
       <ul className="AllEntries">
-        <Entry bookTitle="Alex Book" authorName="Jakob" isReadStatus={true} />
-        <Entry bookTitle="Jakob" authorName="My Mum" isReadStatus={true} />
-        <Entry bookTitle="Bible" authorName="God" isReadStatus={false} />
-        <Entry
-          bookTitle="I don't have a book"
-          authorName="Boris"
-          isReadStatus="false"
-        />
-        <Entry
-          bookTitle="How to Learn JavaScript without learning to fail"
-          authorName="Evi"
-          isReadStatus={true}
-        />
+        {mockApi.map((object) => {
+          return (
+            <Entry
+              key={object.id}
+              entryId={object.id}
+              bookTitle={object.bookTitle}
+              authorName={object.authorName}
+              isReadStatus={object.isRead}
+            />
+          );
+        })}
       </ul>
 
-      <button className="btn btnNav">Add +</button>
+      <NavLink to="/newEntry" className="btn btnNav">
+        Add +
+      </NavLink>
     </main>
   );
 }
