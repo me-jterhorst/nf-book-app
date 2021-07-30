@@ -1,10 +1,11 @@
 const express = require("express");
+const findAll = require("./lib/db");
 
 const app = express();
-const PORT = 3000;
+const PORT = 4000;
 
 app.get("/", (req, res) => {
-  console.log("hello");
+  findAll();
 });
 
 app.listen(PORT, () => {
