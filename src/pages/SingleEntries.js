@@ -1,9 +1,14 @@
 import "./SingleEntries.css";
 import BackBtn from "../components/BackBtn";
 import { useParams } from "react-router-dom";
-import { useEffect, useState, useHistory } from "react";
+import { useEffect, useState } from "react";
 
-export default function SingleEntries({ isReadStatus, bookTitle, authorName }) {
+export default function SingleEntries({
+  goBack,
+  isReadStatus,
+  bookTitle,
+  authorName,
+}) {
   const [book, setBook] = useState({});
   const { pageId } = useParams();
 
@@ -25,7 +30,7 @@ export default function SingleEntries({ isReadStatus, bookTitle, authorName }) {
         <h3>{book.nameAuthor}</h3>
         <h4>{book.bookGenre}</h4>
         <h5>{pageId}</h5>
-        <BackBtn />
+        <BackBtn onClick={goBack} />
       </section>
     </main>
   );

@@ -20,28 +20,17 @@ app.get("/", (req, res) => {
 app.get("/api/books", (req, res) => {
   Book.find()
     .then((data) => {
-      if (data.length === 0) {
-        res.status(404).send("You are not getting anything");
-      } else {
-        res.status(200).send(data);
-      }
+      res.status(200).send(data);
     })
     .catch(() => res.status(500).end());
 });
 
 // GET single book
-
 app.get("/api/books/:id", (req, res) => {
   const { id } = req.params;
   Book.findById(id)
     .then((bookObj) => {
-      if (bookObj.id !== id) {
-        res
-          .status(404)
-          .send(`Wait a minute there is no book with the ${id.length} `);
-      } else {
-        res.status(200).send(bookObj);
-      }
+      res.status(200).send(bookObj);
     })
     .catch(() => res.status(500).end());
 });

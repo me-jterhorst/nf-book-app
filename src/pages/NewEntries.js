@@ -1,10 +1,7 @@
 import "./NewEntries.css";
 import BackBtn from "../components/BackBtn";
-import { useHistory } from "react-router";
 
-export default function NewEntries() {
-  const history = useHistory();
-
+export default function NewEntries({ goBack }) {
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -28,13 +25,9 @@ export default function NewEntries() {
       }),
     });
 
-    console.log("I've just send data");
+    form.reset();
   }
 
-  function handleGoBack() {
-    history.push("/");
-    history.goBack();
-  }
   return (
     <main>
       <form onSubmit={handleSubmit} className="NewEntries">
@@ -67,7 +60,7 @@ export default function NewEntries() {
           Add your book
         </button>
       </form>
-      <BackBtn onClick={handleGoBack} />
+      <BackBtn onClick={goBack} />
     </main>
   );
 }
