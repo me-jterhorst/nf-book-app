@@ -62,7 +62,6 @@ app.post("/api/books", (req, res) => {
 // PATCH single book
 app.patch("/api/books/:id", (req, res) => {
   const { id } = req.params;
-
   Book.findByIdAndUpdate(id, req.body).catch(() => res.status(500).end());
 });
 
