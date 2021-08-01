@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
 
 const PORT = 8080;
@@ -53,6 +54,16 @@ app.delete("/api/books/:id", (req, res) => {
   const { id } = req.params;
 });
 
-app.listen(PORT, () => {
-  console.log(`This Server is running on http://localhost:${PORT}`);
-});
+mongoose
+  .connect("mongodb://localhost:27017/books-api", {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useFindAndModify: false,
+  })
+  .then(() => {
+    console.log("connected to mongoDb");
+    app.listen(PORT, () => {
+      console.log(`This Server is running on http://localhost:${PORT}`);
+    });
+  })
+  .catch((error) => console.log(`You messed up son, go find the ${error}`));
