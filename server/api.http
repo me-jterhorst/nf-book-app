@@ -7,8 +7,23 @@ POST http://localhost:8080/api/books HTTP/1.1
 Content-Type: application/json
 
 {
-    "bookTitle": "Alex Book",
-    "nameAuthor": "Jakob",
+    "bookTitle": "Boris Book",
+    "nameAuthor": "Evi",
     "bookGenre": "Scifi",
     "isRead": "false"
 }
+
+### PATCH by ID
+POST http://localhost:8080/api/books/6106a82c546df864dafd61bd HTTP/1.1
+Content-Type: application/json
+
+{
+    "bookTitle": "Boris Awesome Book",
+    "nameAuthor": "Evi",
+    "bookGenre": "Scifi",
+    "isRead": "false"
+}
+
+
+### DELETE by ID
+DELETE http://localhost:8080/api/books/61069c44f0211a6110aba4fa HTTP/1.1
