@@ -1,28 +1,30 @@
 import "./SingleEntries.css";
 import BackBtn from "../components/BackBtn";
 import { useParams } from "react-router-dom";
+import { useEffect, useState, useHistory } from "react";
 
 export default function SingleEntries({ isReadStatus, bookTitle, authorName }) {
-  const book = {
-    id: "3",
-    bookTitle: "Boris Book",
-    authorName: "Jakob",
-    isRead: true,
-    bookGenre: "Science Fiction",
-    createdAt: "30.07.2021-past",
-    updatedAt: "30.07.2021-later",
-  };
-
+  const [book, setBook] = useState({});
   const { pageId } = useParams();
+
+  useEffect(() => {
+    if (Object.entries(book).length === 0) {
+      const URL = `http://localhost:8080/api/books/${pageId}`;
+
+      fetch(URL)
+        .then((response) => response.json())
+        .then((bookObj) => setBook(bookObj));
+    }
+  }, [book, pageId]);
 
   return (
     <main className="SingleEntry">
       <section>
         <p>{book.isRead ? "OK" : "NO"}</p>
         <h2>{book.bookTitle}</h2>
-        <h3>{book.authorName}</h3>
+        <h3>{book.nameAuthor}</h3>
         <h4>{book.bookGenre}</h4>
-        <p> {pageId}</p>
+        <h5>{pageId}</h5>
         <BackBtn />
       </section>
     </main>
