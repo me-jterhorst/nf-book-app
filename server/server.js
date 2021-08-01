@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Book = require("./models/book");
-const Author = require("./models/author");
+// const Author = require("./models/author");
 const app = express();
 
 const PORT = 8080;
@@ -31,8 +31,17 @@ app.get("/api/books", (req, res) => {
 
 app.get("/api/books/:id", (req, res) => {
   const { id } = req.params;
-
-  res.send(id);
+  Book.findById(id)
+    .then((bookObj) => {
+      if (bookObj.id !== id) {
+        res
+          .status(404)
+          .send(`Wait a minute there is no book with the ${id.length} `);
+      } else {
+        res.status(200).send(bookObj);
+      }
+    })
+    .catch(() => res.status(500).end());
 });
 
 // POST
