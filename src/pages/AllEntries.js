@@ -15,7 +15,10 @@ export default function AllEntries() {
         .then((data) => {
           setApiBooks(data);
           setDatabaseChanged(false);
+          console.group("USEEFFECT");
           console.log(data);
+          console.log(isDatabaseChanged);
+          console.groupEnd();
         });
     }
   }, [apiBooks, isDatabaseChanged]);
@@ -33,6 +36,23 @@ export default function AllEntries() {
     setDatabaseChanged(true);
   }
 
+  function handleOnStatusChange(entryId, isReadStatus) {
+    const URL = `http://localhost:8080/api/books/${entryId}`;
+
+    fetch(URL, {
+      method: "PATCH",
+      headers: {
+        "Content-type": "application/json",
+      },
+
+      body: JSON.stringify({
+        isRead: !isReadStatus,
+      }),
+    });
+
+    setDatabaseChanged(true);
+  }
+
   return (
     <main>
       <ul className="AllEntries">
@@ -45,6 +65,9 @@ export default function AllEntries() {
               authorName={object.nameAuthor}
               isReadStatus={object.isRead}
               onDelete={() => handleOnDelete(object._id)}
+              onStatusChange={() =>
+                handleOnStatusChange(object._id, object.isRead)
+              }
             />
           );
         })}
