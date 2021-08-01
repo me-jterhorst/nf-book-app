@@ -1,36 +1,32 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const Book = require("./models/book");
+const Author = require("./models/author");
 const app = express();
 
 const PORT = 8080;
 
+/*Middle Ware Part */
+app.use(express.json());
+
+/* Bottom Ware Part */
 app.get("/", (req, res) => {
   res.send("Hello Boris");
 });
 
 // GET all books
 app.get("/api/books", (req, res) => {
-  res.send([
-    {
-      id: 1,
-      bookTitle: "Alex Book",
-      authorName: "Jakob",
-      bookGenre: "scifi",
-      isRead: true,
-      createdAt: "sometime",
-      updatedAt: "sometime else",
-    },
-    {
-      id: 2,
-      bookTitle: "Evi Book",
-      authorName: "Boris",
-      bookGenre: "scifi",
-      isRead: false,
-      createdAt: "sometime",
-      updatedAt: "sometime else",
-    },
-  ]);
+  Book.find()
+    .then((data) => {
+      if (data.length === 0) {
+        res.status(404).send("You are not getting anything");
+      } else {
+        res.status(200).send(data);
+      }
+    })
+    .catch(() => res.status(500).end());
 });
+
 // GET single book
 
 app.get("/api/books/:id", (req, res) => {
@@ -40,8 +36,18 @@ app.get("/api/books/:id", (req, res) => {
 });
 
 // POST
-app.post("/api/newbook", (req, res) => {
-  console.log(req.body);
+app.post("/api/books", (req, res) => {
+  Book.create(req.body)
+    .then((newBook) => {
+      res.status(201).send(newBook);
+    })
+    .catch((error) => {
+      if (error.name === "ValidationError") {
+        console.error(error);
+        res.status(400);
+        res.json(error);
+      }
+    });
 });
 
 // PATCH single book
