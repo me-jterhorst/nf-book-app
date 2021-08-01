@@ -6,17 +6,23 @@ export default function Entry({
   bookTitle,
   authorName,
   isReadStatus,
+  onDelete,
+  onStatusChange,
 }) {
   return (
     <li className="AllEntries-Item">
-      <button className="btn btn--del">X</button>
+      <button className="btn btn--del" onClick={onDelete}>
+        X
+      </button>
       <Link to={`/singleEntry/${entryId}`}>
         <div className="AllEntries-Item__content">
           <h2>{bookTitle}</h2>
           <h3>{authorName}</h3>
         </div>
       </Link>
-      <button className="btn btn--check">{isReadStatus ? "OK" : "NO"}</button>
+      <button className="btn btn--check" onClick={onStatusChange}>
+        {isReadStatus ? "OK" : "NO"}
+      </button>
     </li>
   );
 }

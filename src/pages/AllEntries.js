@@ -5,18 +5,33 @@ import { NavLink } from "react-router-dom";
 
 export default function AllEntries() {
   const [apiBooks, setApiBooks] = useState([]);
+  const [isDatabaseChanged, setDatabaseChanged] = useState(false);
 
   useEffect(() => {
-    if (apiBooks.length === 0) {
+    if (apiBooks.length === 0 || isDatabaseChanged === true) {
       const URL = `http://localhost:8080/api/books/`;
       fetch(URL)
         .then((response) => response.json())
         .then((data) => {
           setApiBooks(data);
+          setDatabaseChanged(false);
           console.log(data);
         });
     }
-  }, [apiBooks]);
+  }, [apiBooks, isDatabaseChanged]);
+
+  function handleOnDelete(entryId) {
+    const URL = `http://localhost:8080/api/books/${entryId}`;
+
+    fetch(URL, {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+
+    setDatabaseChanged(true);
+  }
 
   return (
     <main>
@@ -29,6 +44,7 @@ export default function AllEntries() {
               bookTitle={object.bookTitle}
               authorName={object.nameAuthor}
               isReadStatus={object.isRead}
+              onDelete={() => handleOnDelete(object._id)}
             />
           );
         })}

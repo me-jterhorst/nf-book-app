@@ -7,7 +7,7 @@ POST http://localhost:8080/api/books HTTP/1.1
 Content-Type: application/json
 
 {
-    "bookTitle": "Boris Book",
+    "bookTitle": "Boris 4 Book",
     "nameAuthor": "Evi",
     "bookGenre": "Scifi",
     "isRead": "false"
