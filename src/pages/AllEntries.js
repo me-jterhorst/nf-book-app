@@ -11,7 +11,10 @@ export default function AllEntries() {
       const URL = `http://localhost:8080/api/books/`;
       fetch(URL)
         .then((response) => response.json())
-        .then((data) => setApiBooks(data));
+        .then((data) => {
+          setApiBooks(data);
+          console.log(data);
+        });
     }
   }, [apiBooks]);
 
@@ -21,10 +24,10 @@ export default function AllEntries() {
         {apiBooks.map((object) => {
           return (
             <Entry
-              key={object.id}
-              entryId={object.id}
+              key={object._id}
+              entryId={object._id}
               bookTitle={object.bookTitle}
-              authorName={object.authorName}
+              authorName={object.nameAuthor}
               isReadStatus={object.isRead}
             />
           );

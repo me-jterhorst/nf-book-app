@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+// const cors = require("cors");
 const Book = require("./models/book");
 // const Author = require("./models/author");
 const app = express();
@@ -8,6 +9,10 @@ const PORT = 8080;
 
 /*Middle Ware Part */
 app.use(express.json());
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
 
 /* Bottom Ware Part */
 app.get("/", (req, res) => {
