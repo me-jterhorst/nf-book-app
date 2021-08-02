@@ -1,0 +1,31 @@
+.SingleEntry {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 4px solid black;
+}
+
+.SingleEntry p {
+  background: cadetblue;
+  font-weight: bolder;
+  color: white;
+  padding: 1em;
+  display: inline;
+
+  position: absolute;
+  top: 1.5em;
+  right: 1.5em;
+}
+
+.SingleEntry h2 {
+  color: steelblue;
+  font-size: 4rem;
+}
+
+.SingleEntry h3 {
+  color: seagreen;
+  font-size: 3.2rem;
+}

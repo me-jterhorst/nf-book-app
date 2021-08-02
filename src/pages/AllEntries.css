@@ -1,0 +1,38 @@
+.AllEntries {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 1em;
+  padding: 0.5em;
+  border: 4px solid black;
+}
+
+.AllEntries-Item {
+  border: 4px solid grey;
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.AllEntries-Item h2 {
+  color: steelblue;
+}
+
+.AllEntries-Item h3 {
+  color: seagreen;
+}
+
+.btn {
+  all: unset;
+  cursor: pointer;
+  padding: 0.5em;
+}
+
+.btn--del {
+  color: crimson;
+}
+
+.btn:hover {
+  opacity: 0.5;
+}
