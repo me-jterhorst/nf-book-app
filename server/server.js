@@ -1,7 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const Book = require("./models/book");
+
 // const Author = require("./models/author");
 const app = express();
 
@@ -62,8 +64,9 @@ app.delete("/api/books/:id", (req, res) => {
   Book.findByIdAndRemove(id).catch(() => res.status(500).end());
 });
 
+const { MONGO_URI } = process.env;
 mongoose
-  .connect("mongodb://localhost:27017/books-api", {
+  .connect(MONGO_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useFindAndModify: false,
